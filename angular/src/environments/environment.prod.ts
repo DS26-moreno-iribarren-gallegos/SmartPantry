@@ -3,11 +3,11 @@ import { Environment } from '@abp/ng.core';
 const baseUrl = 'http://localhost:4200';
 
 const oAuthConfig = {
-  issuer: 'https://localhost:44340/',
+  issuer: 'https://localhost:44395/',
   redirectUri: baseUrl,
-  clientId: 'AbpSolution1_App',
+  clientId: 'SmartPantry1_App',
   responseType: 'code',
-  scope: 'offline_access AbpSolution1',
+  scope: 'offline_access SmartPantry1',
   requireHttps: true,
 };
 
@@ -15,13 +15,13 @@ export const environment = {
   production: true,
   application: {
     baseUrl,
-    name: 'AbpSolution1',
+    name: 'SmartPantry1',
   },
   oAuthConfig,
   apis: {
     default: {
-      url: 'https://localhost:44340',
-      rootNamespace: 'AbpSolution1',
+      url: 'https://localhost:44395',
+      rootNamespace: 'SmartPantry1',
     },
     AbpAccountPublic: {
       url: oAuthConfig.issuer,

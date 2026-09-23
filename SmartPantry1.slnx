@@ -1,0 +1,23 @@
+<Solution>
+    <Configurations>
+        <Platform Name="Any CPU" />
+    </Configurations>
+    <Folder Name="/src/">
+        <Project Path="src/SmartPantry1.Domain/SmartPantry1.Domain.csproj" />
+        <Project Path="src/SmartPantry1.Application/SmartPantry1.Application.csproj" />
+        <Project Path="src/SmartPantry1.EntityFrameworkCore/SmartPantry1.EntityFrameworkCore.csproj" />
+        <Project Path="src/SmartPantry1.Domain.Shared/SmartPantry1.Domain.Shared.csproj" />
+        <Project Path="src/SmartPantry1.Application.Contracts/SmartPantry1.Application.Contracts.csproj" />
+        <Project Path="src/SmartPantry1.HttpApi/SmartPantry1.HttpApi.csproj" />
+        <Project Path="src/SmartPantry1.HttpApi.Client/SmartPantry1.HttpApi.Client.csproj" />
+        <Project Path="src/SmartPantry1.HttpApi.Host/SmartPantry1.HttpApi.Host.csproj" />
+        <Project Path="src/SmartPantry1.DbMigrator/SmartPantry1.DbMigrator.csproj" />
+    </Folder>
+    <Folder Name="/test/">
+        <Project Path="test/SmartPantry1.Application.Tests/SmartPantry1.Application.Tests.csproj" />
+        <Project Path="test/SmartPantry1.EntityFrameworkCore.Tests/SmartPantry1.EntityFrameworkCore.Tests.csproj" />
+        <Project Path="test/SmartPantry1.TestBase/SmartPantry1.TestBase.csproj" />
+        <Project Path="test/SmartPantry1.Domain.Tests/SmartPantry1.Domain.Tests.csproj" />
+        <Project Path="test/SmartPantry1.HttpApi.Client.ConsoleTestApp/SmartPantry1.HttpApi.Client.ConsoleTestApp.csproj" />
+    </Folder>
+</Solution>

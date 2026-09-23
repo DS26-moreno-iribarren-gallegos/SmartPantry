@@ -20,14 +20,14 @@ function configureRoutes() {
         name: '::Menu:Books',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
-        requiredPolicy: 'AbpSolution1.Books',
+        requiredPolicy: 'SmartPantry1.Books',
       },
       {
         path: '/authors',
         name: '::Menu:Authors',
         iconClass: 'fas fa-user-edit',
         layout: eLayoutType.application,
-        requiredPolicy: 'AbpSolution1.Authors',
+        requiredPolicy: 'SmartPantry1.Authors',
       },
   ]);
 }

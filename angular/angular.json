@@ -7,7 +7,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AbpSolution1": {
+    "SmartPantry1": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,7 +22,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": {
-              "base": "dist/AbpSolution1"
+              "base": "dist/SmartPantry1"
             },
             "index": "src/index.html",
             "polyfills": [
@@ -129,10 +129,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AbpSolution1:build:production"
+              "buildTarget": "SmartPantry1:build:production"
             },
             "development": {
-              "buildTarget": "AbpSolution1:build:development"
+              "buildTarget": "SmartPantry1:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -140,14 +140,14 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "AbpSolution1:build"
+            "buildTarget": "SmartPantry1:build"
           }
         },
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "buildTarget": "AbpSolution1:build",
+            "buildTarget": "SmartPantry1:build",
             "runner": "vitest"
           }
         },
