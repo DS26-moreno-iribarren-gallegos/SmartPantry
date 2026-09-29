@@ -7,7 +7,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SmartPantry1": {
+    "SmartPantry": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,7 +22,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": {
-              "base": "dist/SmartPantry1"
+              "base": "dist/SmartPantry"
             },
             "index": "src/index.html",
             "polyfills": [
@@ -129,10 +129,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SmartPantry1:build:production"
+              "buildTarget": "SmartPantry:build:production"
             },
             "development": {
-              "buildTarget": "SmartPantry1:build:development"
+              "buildTarget": "SmartPantry:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -140,14 +140,14 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "SmartPantry1:build"
+            "buildTarget": "SmartPantry:build"
           }
         },
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "buildTarget": "SmartPantry1:build",
+            "buildTarget": "SmartPantry:build",
             "runner": "vitest"
           }
         },

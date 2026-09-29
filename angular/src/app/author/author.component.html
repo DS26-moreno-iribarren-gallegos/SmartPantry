@@ -10,7 +10,7 @@
           <span>{{ '::ExportToExcel' | abpLocalization }}</span>
         </button>
         <button
-          *abpPermission="'SmartPantry1.Authors.Create'"
+          *abpPermission="'SmartPantry.Authors.Create'"
           id="create"
           class="btn btn-primary"
           type="button"
@@ -42,14 +42,14 @@
             </button>
             <div ngbDropdownMenu>
               <button
-                *abpPermission="'SmartPantry1.Authors.Edit'"
+                *abpPermission="'SmartPantry.Authors.Edit'"
                 ngbDropdownItem
                 (click)="editAuthor(row.id)"
               >
                 {{ '::Edit' | abpLocalization }}
               </button>
               <button
-                *abpPermission="'SmartPantry1.Authors.Delete'"
+                *abpPermission="'SmartPantry.Authors.Delete'"
                 ngbDropdownItem
                 (click)="delete(row.id)"
               >

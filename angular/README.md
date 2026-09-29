@@ -1,4 +1,4 @@
-# SmartPantry1 - Angular Application
+# SmartPantry - Angular Application
 
 This is an Angular application built on the ABP Framework. For more information, visit <a href="https://abp.io/" target="_blank">abp.io</a>.
 
