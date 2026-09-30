@@ -37,16 +37,16 @@ Repositorio del Trabajo Práctico Integrador de Desarrollo de Software 2026.
 - `dotnet run --project .\src\SmartPantry1.HttpApi.Host`
 - `Push-Location .\angular`
 - `yarn start`
-- Con los comandos corriendo, verificar en `http://localhost:4200/` y `https://localhost:44395/` el correcto despliegue de la interfaz.
+- Con los comandos corriendo, verificar en `http://localhost:4200/` y `https://localhost:44381/` el correcto despliegue de la interfaz.
 
 # Verificación
 
 ## Backend
 
 - Posicionarse en la raiz del proyecto, y ejecutar los siguientes comandos:
-- `dotnet restore ./SmartPantry1.slnx`
-- `dotnet build ./SmartPantry1.slnx --configuration Release --no-restore`
-- `dotnet test ./SmartPantry1.slnx --configuration Release --no-build`
+- `dotnet restore ./SmartPantry.slnx`
+- `dotnet build ./SmartPantry.slnx --configuration Release --no-restore`
+- `dotnet test ./SmartPantry.slnx --configuration Release --no-build`
 
 ## Frontend
 
