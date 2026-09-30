@@ -12,9 +12,12 @@ Repositorio del Trabajo Práctico Integrador de Desarrollo de Software 2026.
 
 ## Configuración local
 
-- Clonar el repositorio: `git clone https://github.com/DS26-moreno-iribarren-gallegos/SmartPantry.git`.
-- Configurar la base de datos: actualizar la cadena de conexión de los archivos appsettings.json de las carpetas DbMigrator y HttpApi.Host para apuntar al servidor local: `"Default": "Server=(LocalDb)\\MSSQLLocalDB;Database=SmartPantry;Trusted_Connection=True;TrustServerCertificate=true"`.
-- Posicionarse en la raiz del directorio de SmartPantry, luego ejecutar el siguiente comando de .NET para evitar el error "UntrustedRoot": `dotnet dev-certs https --trust`.
+- Clonar el repositorio:
+- `git clone https://github.com/DS26-moreno-iribarren-gallegos/SmartPantry.git`.
+- Configurar la base de datos: actualizar la cadena de conexión de los archivos appsettings.json de las carpetas DbMigrator y HttpApi.Host para apuntar al servidor local:
+- `"Default": "Server=(LocalDb)\\MSSQLLocalDB;Database=SmartPantry;Trusted_Connection=True;TrustServerCertificate=true"`.
+- Posicionarse en la raiz del directorio de SmartPantry, luego ejecutar el siguiente comando de .NET para evitar el error "UntrustedRoot":
+- `dotnet dev-certs https --trust`.
 
 # Puesta en marcha
 
@@ -29,7 +32,8 @@ Repositorio del Trabajo Práctico Integrador de Desarrollo de Software 2026.
 
 ## Crear tablas SQL
 
-- Ejecutar el siguiente comando para generar las tablas SQL: `dotnet run --project .\src\SmartPantry.DbMigrator`
+- Ejecutar el siguiente comando para generar las tablas SQL:
+- `dotnet run --project .\src\SmartPantry.DbMigrator`
 
 # Prueba de interfaz
 
