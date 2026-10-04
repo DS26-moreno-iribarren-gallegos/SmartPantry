@@ -452,3 +452,7 @@ src/SmartPantry.Blazor.Server.Tiered/Logs/*
 # IdentityServer temp files
 tempkey.rsa
 tempkey.jwk
+
+angular/package.json
+angular/yarn.lock
+src/SmartPantry.HttpApi.Host/yarn.lock
