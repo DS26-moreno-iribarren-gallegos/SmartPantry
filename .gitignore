@@ -452,3 +452,6 @@ src/SmartPantry.Blazor.Server.Tiered/Logs/*
 # IdentityServer temp files
 tempkey.rsa
 tempkey.jwk
+
+.atl/
+.DS_Store
