@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using SmartPantry.Authors;
 using SmartPantry.Books;
+using SmartPantry.Products;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -32,6 +33,8 @@ public class SmartPantryDbContext :
     public DbSet<Author> Authors { get; set; }
 
     public DbSet<Book> Books { get; set; }
+
+    public DbSet<Product> Products { get; set; }
 
     #region Entities from the modules
 
@@ -110,5 +113,14 @@ public class SmartPantryDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+        
+        builder.Entity<Product>(b =>
+        {
+            b.ToTable("Products"); 
+            b.ConfigureByConvention();
+            b.Property(x => x.Name).IsRequired().HasMaxLength(ProductConsts.NameMaxLength);
+            b.Property(x => x.Barcode).IsRequired().HasMaxLength(ProductConsts.BarcodeMaxLength);
+            b.Property(x => x.Maker).IsRequired().HasMaxLength(ProductConsts.MakerMaxLength);
+        });
     }
 }
