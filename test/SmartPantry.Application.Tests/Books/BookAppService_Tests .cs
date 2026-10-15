@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Shouldly;
+using SmartPantry.Authors;
+using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Modularity;
 using Volo.Abp.Validation;
@@ -32,9 +34,14 @@ public abstract class BookAppService_Tests<TStartupModule> : SmartPantryApplicat
         result.Items.ShouldContain(b => b.Name == "1984");
     }
 
-    [Fact(Skip = "Falla de clave foranea de un codigo autogenerado")]
+    [Fact]
     public async Task Should_Create_A_Valid_Book()
     {
+        //Arrange: get an existing author seeded in test data
+        var authorRepository = GetRequiredService<IRepository<Author,Guid>>();
+        var authors = await authorRepository.GetListAsync();
+        var authorId = authors.First().Id;
+
         //Act
         var result = await _bookAppService.CreateAsync(
             new CreateUpdateBookDto
@@ -42,7 +49,8 @@ public abstract class BookAppService_Tests<TStartupModule> : SmartPantryApplicat
                 Name = "New test book 42",
                 Price = 10,
                 PublishDate = DateTime.Now,
-                Type = BookType.ScienceFiction
+                Type = BookType.ScienceFiction,
+                AuthorId = authorId
             }
         );
 
