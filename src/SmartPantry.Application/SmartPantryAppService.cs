@@ -1,4 +1,5 @@
-﻿using SmartPantry.Localization;
+﻿using System;
+using SmartPantry.Localization;
 using Volo.Abp.Application.Services;
 
 namespace SmartPantry;
