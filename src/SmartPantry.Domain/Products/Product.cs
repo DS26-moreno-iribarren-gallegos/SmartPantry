@@ -15,7 +15,13 @@ public class Product:BasicAggregateRoot<Guid>
     {
       
     }
-    
+    public void Update(string name, string maker, string barcode)
+    {
+        Name = Check.NotNullOrWhiteSpace(name?.Trim(), nameof(name), maxLength: ProductConsts.NameMaxLength);
+        Maker = Check.NotNullOrWhiteSpace(maker?.Trim(), nameof(maker), maxLength: ProductConsts.MakerMaxLength);
+        Barcode = Check.NotNullOrWhiteSpace(barcode?.Trim(), nameof(barcode), maxLength: ProductConsts.BarcodeMaxLength);
+    }
+
     // constructor publico, recibe los datos y los valida.
     public Product( Guid id, string name, string maker, string barcode) : base(id)
     {

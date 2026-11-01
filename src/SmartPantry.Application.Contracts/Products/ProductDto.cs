@@ -3,7 +3,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace SmartPantry.Products;
 
-public class ProductDto : EntityDto<Guid> 
+public class ProductDto : AuditedEntityDto<Guid>
 {
     public string Name { get; set; }
     public string Maker { get; set; }

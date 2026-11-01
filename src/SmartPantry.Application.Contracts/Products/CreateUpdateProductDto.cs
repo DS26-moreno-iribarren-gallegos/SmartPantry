@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SmartPantry.Products;
 
-public class CreateProductDto
+public class CreateUpdateProductDto
 {
     [Required] 
     [StringLength(ProductConsts.NameMaxLength)]
