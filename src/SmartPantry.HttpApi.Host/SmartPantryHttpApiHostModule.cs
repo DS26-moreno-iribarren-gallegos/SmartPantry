@@ -33,6 +33,8 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Microsoft.AspNetCore.Hosting;
+using SmartPantry.ExternalProducts;
+using SmartPantry.OpenFoodFacts;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Identity;
 using Volo.Abp.OpenIddict;
@@ -127,6 +129,14 @@ public class SmartPantryHttpApiHostModule : AbpModule
         ConfigureSwagger(context, configuration);
         ConfigureVirtualFileSystem(context);
         ConfigureCors(context, configuration);
+        
+        context.Services.AddHttpClient<IExternalProductCatalogClient, OpenFoodFactsProductCatalogClient>(client =>
+        {
+            client.BaseAddress = new Uri("https://world.openfoodfacts.org/");
+            // El User-Agent es obligatorio por politicas de Open Food Facts
+            client.DefaultRequestHeaders.Add("User-Agent", "SmartPantryApp - API Integration - UTN FRCU Coursework");
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+        });
     }
 
     private void ConfigureStudio(IHostEnvironment hostingEnvironment)
