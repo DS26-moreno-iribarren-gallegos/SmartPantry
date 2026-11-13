@@ -49,7 +49,30 @@ namespace SmartPantry.EntityFrameworkCore.Pantry
                 // Assert: La advertencia debe desactivarse (IsActive = false) al dejar de estar Disponible
                 var updatedWarning = await _warningRepository.FirstOrDefaultAsync(w => w.PantryItemId == itemId);
                 updatedWarning.ShouldNotBeNull();
+                updatedWarning.Id.ShouldBe(warning.Id);
                 updatedWarning.IsActive.ShouldBeFalse();
+
+                await uow.CompleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task Should_Not_Create_Warning_When_Item_Is_Consumed()
+        {
+            var userId = Guid.NewGuid();
+            var itemId = Guid.NewGuid();
+            var referenceDate = new DateTime(2026, 11, 10, 0, 0, 0, DateTimeKind.Utc);
+
+            using (var uow = _unitOfWorkManager.Begin(requiresNew: true, isTransactional: true))
+            {
+                // Un producto consumido no debe generar advertencias, aunque esté vencido.
+                var item = new PantryItem(itemId, userId, "CONSUMED-01", PantryItemStatus.Consumed, referenceDate.AddDays(-1));
+                await _itemRepository.InsertAsync(item, autoSave: true);
+
+                await _manager.ProcessExpirationsAsync(referenceDate);
+
+                var warnings = await _warningRepository.GetListAsync(w => w.PantryItemId == itemId);
+                warnings.ShouldBeEmpty();
 
                 await uow.CompleteAsync();
             }
@@ -73,8 +96,9 @@ namespace SmartPantry.EntityFrameworkCore.Pantry
 
                 var warnings = await _warningRepository.GetListAsync(w => w.PantryItemId == itemId);
                 warnings.Count.ShouldBe(1);
+                var originalWarningId = warnings[0].Id;
                 warnings[0].IsActive.ShouldBeTrue();
-                warnings[0].TargetExpirationDate.Date.ShouldBe(referenceDate.AddDays(2).Date);
+                warnings[0].TargetExpirationDate.ShouldBe(referenceDate.AddDays(2));
 
                 // Paso 2: Cambiar la fecha a 1 día -> Se actualiza la fecha en el registro existente
                 item.ExpirationDate = referenceDate.AddDays(1);
@@ -84,8 +108,9 @@ namespace SmartPantry.EntityFrameworkCore.Pantry
 
                 warnings = await _warningRepository.GetListAsync(w => w.PantryItemId == itemId);
                 warnings.Count.ShouldBe(1);
+                warnings[0].Id.ShouldBe(originalWarningId);
                 warnings[0].IsActive.ShouldBeTrue();
-                warnings[0].TargetExpirationDate.Date.ShouldBe(referenceDate.AddDays(1).Date);
+                warnings[0].TargetExpirationDate.ShouldBe(referenceDate.AddDays(1));
 
                 // Paso 3: Cambiar la fecha fuera del umbral (10 días) -> Se desactiva la advertencia
                 item.ExpirationDate = referenceDate.AddDays(10);
@@ -95,6 +120,7 @@ namespace SmartPantry.EntityFrameworkCore.Pantry
 
                 warnings = await _warningRepository.GetListAsync(w => w.PantryItemId == itemId);
                 warnings.Count.ShouldBe(1);
+                warnings[0].Id.ShouldBe(originalWarningId);
                 warnings[0].IsActive.ShouldBeFalse();
 
                 // Paso 4: Reactivación -> Vuelve a fecha dentro del umbral (2 días), reactiva la misma advertencia sin duplicar
@@ -105,7 +131,9 @@ namespace SmartPantry.EntityFrameworkCore.Pantry
 
                 warnings = await _warningRepository.GetListAsync(w => w.PantryItemId == itemId);
                 warnings.Count.ShouldBe(1);
+                warnings[0].Id.ShouldBe(originalWarningId);
                 warnings[0].IsActive.ShouldBeTrue();
+                warnings[0].TargetExpirationDate.ShouldBe(referenceDate.AddDays(2));
 
                 await uow.CompleteAsync();
             }
