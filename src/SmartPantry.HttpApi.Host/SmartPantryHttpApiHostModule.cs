@@ -41,6 +41,8 @@ using Volo.Abp.OpenIddict;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.Studio.Client.AspNetCore;
 using Volo.Abp.Security.Claims;
+using SmartPantry.Workers;
+using Volo.Abp.BackgroundWorkers;
 
 namespace SmartPantry;
 
@@ -311,5 +313,9 @@ public class SmartPantryHttpApiHostModule : AbpModule
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseConfiguredEndpoints();
+
+        // Registrar el Background Worker periodico
+        context.AddBackgroundWorkerAsync<ExpirationWarningWorker>();
     }
 }
+

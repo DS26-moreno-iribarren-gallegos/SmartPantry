@@ -17,6 +17,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using SmartPantry.Pantry;
 
 namespace SmartPantry.EntityFrameworkCore;
 
@@ -30,6 +31,10 @@ public class SmartPantryDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
+    public DbSet<PantryItem> PantryItems { get; set; }
+    
+    public DbSet<ExpirationWarning> ExpirationWarnings { get; set; }
+    
     public DbSet<Author> Authors { get; set; }
 
     public DbSet<Book> Books { get; set; }
@@ -122,5 +127,23 @@ public class SmartPantryDbContext :
             b.Property(x => x.Barcode).IsRequired().HasMaxLength(ProductConsts.BarcodeMaxLength);
             b.Property(x => x.Maker).IsRequired().HasMaxLength(ProductConsts.MakerMaxLength);
         });
+        
+        builder.Entity<PantryItem>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "PantryItems", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention(); // Configura claves primarias y campos de auditoría de ABP
+    
+            b.Property(x => x.ProductBarcode).IsRequired().HasMaxLength(128);
+        });
+
+        builder.Entity<ExpirationWarning>(b =>
+        {
+            b.ToTable(SmartPantryConsts.DbTablePrefix + "ExpirationWarnings", SmartPantryConsts.DbSchema);
+            b.ConfigureByConvention();
+
+            // REQUISITO TP08: Indice unico para garantizar una sola advertencia por ítem
+            b.HasIndex(x => x.PantryItemId).IsUnique();
+        });
+        
     }
 }
