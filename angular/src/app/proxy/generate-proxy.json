@@ -2625,9 +2625,597 @@
                 ],
                 "isRemoteStream": false
               },
-              "allowAnonymous": null,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "SmartPantry.ExternalProducts.IExternalProductAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            }
+          }
+        },
+        "SmartPantry.Pantry.PantryItemAppService": {
+          "controllerName": "PantryItem",
+          "controllerGroupName": "PantryItem",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "SmartPantry.Pantry.PantryItemAppService",
+          "summary": null,
+          "remarks": null,
+          "description": null,
+          "displayName": null,
+          "interfaces": [
+            {
+              "type": "SmartPantry.Pantry.IPantryItemAppService",
+              "name": "IPantryItemAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<SmartPantry.Pantry.PantryItemDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<SmartPantry.Pantry.PantryItemDto>",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "SmartPantry.Pantry.PantryItemDto",
+                    "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "SmartPantry.Pantry.CreatePantryItemDto, SmartPantry.Application.Contracts",
+                      "type": "SmartPantry.Pantry.CreatePantryItemDto",
+                      "typeSimple": "SmartPantry.Pantry.CreatePantryItemDto",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "SmartPantry.Pantry.PantryItemDto",
+                    "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "SmartPantry.Pantry.UpdatePantryItemDto, SmartPantry.Application.Contracts",
+                      "type": "SmartPantry.Pantry.UpdatePantryItemDto",
+                      "typeSimple": "SmartPantry.Pantry.UpdatePantryItemDto",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "SmartPantry.Pantry.PantryItemDto",
+                    "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                },
+                {
+                  "name": "MarkAsConsumedAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "SmartPantry.Pantry.PantryItemDto",
+                    "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/pantry-item",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<SmartPantry.Pantry.PantryItemDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<SmartPantry.Pantry.PantryItemDto>",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/pantry-item/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "SmartPantry.Pantry.PantryItemDto",
+                "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/pantry-item",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "SmartPantry.Pantry.CreatePantryItemDto, SmartPantry.Application.Contracts",
+                  "type": "SmartPantry.Pantry.CreatePantryItemDto",
+                  "typeSimple": "SmartPantry.Pantry.CreatePantryItemDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "SmartPantry.Pantry.CreatePantryItemDto",
+                  "typeSimple": "SmartPantry.Pantry.CreatePantryItemDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "SmartPantry.Pantry.PantryItemDto",
+                "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/pantry-item/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "SmartPantry.Pantry.UpdatePantryItemDto, SmartPantry.Application.Contracts",
+                  "type": "SmartPantry.Pantry.UpdatePantryItemDto",
+                  "typeSimple": "SmartPantry.Pantry.UpdatePantryItemDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "SmartPantry.Pantry.UpdatePantryItemDto",
+                  "typeSimple": "SmartPantry.Pantry.UpdatePantryItemDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "SmartPantry.Pantry.PantryItemDto",
+                "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            },
+            "MarkAsConsumedAsyncById": {
+              "uniqueName": "MarkAsConsumedAsyncById",
+              "name": "MarkAsConsumedAsync",
+              "httpMethod": "POST",
+              "url": "api/app/pantry-item/{id}/mark-as-consumed",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "SmartPantry.Pantry.PantryItemDto",
+                "typeSimple": "SmartPantry.Pantry.PantryItemDto",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/pantry-item/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void",
+                "summary": null,
+                "contentTypes": null,
+                "isRemoteStream": false
+              },
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
+              "implementFrom": "SmartPantry.Pantry.IPantryItemAppService",
               "summary": null,
               "remarks": null,
               "description": null,
@@ -2828,8 +3416,13 @@
                 ],
                 "isRemoteStream": false
               },
-              "allowAnonymous": true,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<SmartPantry.Products.ProductDto,SmartPantry.Products.CreateUpdateProductDto>",
               "summary": null,
               "remarks": null,
@@ -2909,8 +3502,13 @@
                 ],
                 "isRemoteStream": false
               },
-              "allowAnonymous": true,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<SmartPantry.Products.ProductDto,System.Guid,SmartPantry.Products.CreateUpdateProductDto>",
               "summary": null,
               "remarks": null,
@@ -2960,8 +3558,13 @@
                 "contentTypes": null,
                 "isRemoteStream": false
               },
-              "allowAnonymous": true,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>",
               "summary": null,
               "remarks": null,
@@ -3015,8 +3618,13 @@
                 ],
                 "isRemoteStream": false
               },
-              "allowAnonymous": true,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<SmartPantry.Products.ProductDto,SmartPantry.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>",
               "summary": null,
               "remarks": null,
@@ -3100,8 +3708,13 @@
                 ],
                 "isRemoteStream": false
               },
-              "allowAnonymous": true,
-              "authorizeDatas": [],
+              "allowAnonymous": false,
+              "authorizeDatas": [
+                {
+                  "policy": null,
+                  "roles": null
+                }
+              ],
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<SmartPantry.Products.ProductDto,SmartPantry.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>",
               "summary": null,
               "remarks": null,
@@ -8575,6 +9188,273 @@
           "maximum": null,
           "regex": null,
           "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        }
+      ],
+      "summary": null,
+      "remarks": null,
+      "description": null,
+      "displayName": null
+    },
+    "SmartPantry.Pantry.CreatePantryItemDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ProductBarcode",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": 0,
+          "maxLength": 128,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "ExpirationDate",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Quantity",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": "0",
+          "maximum": "1.7976931348623157E+308",
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Unit",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": 0,
+          "maxLength": 32,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        }
+      ],
+      "summary": null,
+      "remarks": null,
+      "description": null,
+      "displayName": null
+    },
+    "SmartPantry.Pantry.PantryItemDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ProductBarcode",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "ProductName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Status",
+          "jsonName": null,
+          "type": "SmartPantry.Pantry.PantryItemStatus",
+          "typeSimple": "enum",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "ExpirationDate",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Quantity",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Unit",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        }
+      ],
+      "summary": null,
+      "remarks": null,
+      "description": null,
+      "displayName": null
+    },
+    "SmartPantry.Pantry.PantryItemStatus": {
+      "baseType": "System.Enum",
+      "isEnum": true,
+      "enumNames": [
+        "Available",
+        "Consumed",
+        "Discarded"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2
+      ],
+      "genericArguments": null,
+      "properties": null,
+      "summary": null,
+      "remarks": null,
+      "description": null,
+      "displayName": null
+    },
+    "SmartPantry.Pantry.UpdatePantryItemDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Quantity",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": "0",
+          "maximum": "1.7976931348623157E+308",
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Unit",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": 0,
+          "maxLength": 32,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "ExpirationDate",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
           "summary": null,
           "description": null,
           "displayName": null

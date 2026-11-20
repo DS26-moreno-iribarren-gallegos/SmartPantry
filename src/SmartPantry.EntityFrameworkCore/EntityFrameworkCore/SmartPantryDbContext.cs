@@ -134,6 +134,8 @@ public class SmartPantryDbContext :
             b.ConfigureByConvention(); // Configura claves primarias y campos de auditoría de ABP
     
             b.Property(x => x.ProductBarcode).IsRequired().HasMaxLength(128);
+            b.Property(x => x.Quantity).HasPrecision(18, 2);
+            b.Property(x => x.Unit).HasMaxLength(PantryItemConsts.UnitMaxLength);
         });
 
         builder.Entity<ExpirationWarning>(b =>
