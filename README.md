@@ -19,28 +19,6 @@ Repositorio del Trabajo Práctico Integrador de Desarrollo de Software 2026.
 - Posicionarse en la raiz del directorio de SmartPantry, luego ejecutar el siguiente comando de .NET para evitar el error "UntrustedRoot":
  `dotnet dev-certs https --trust`.
 
-## Gestión de Despensa Personal (RF-11)
-
-Funcionalidad full-stack para que cada usuario autenticado gestione su propia despensa doméstica con aislamiento estricto por usuario (`OwnerUserId`).
-
-### Endpoints principales (`/api/app/pantry-item`)
-- `GET /api/app/pantry-item`: Lista paginada de los ítems pertenecientes al usuario autenticado, resolviendo el nombre desde el catálogo (`Products`) por `ProductBarcode` cuando existe.
-- `GET /api/app/pantry-item/{id}`: Obtiene el detalle de un ítem propio (`403 Forbidden` si pertenece a otro usuario).
-- `POST /api/app/pantry-item`: Registra un nuevo ítem en la despensa del usuario (`quantity`, `unit` y `expirationDate` opcionales).
-- `PUT /api/app/pantry-item/{id}`: Actualiza cantidad, unidad o fecha de vencimiento de un ítem propio.
-- `POST /api/app/pantry-item/{id}/mark-as-consumed`: Marca un ítem disponible como consumido conservándolo como historial.
-- `DELETE /api/app/pantry-item/{id}`: Elimina un ítem propio.
-
-### Interfaz Web Angular (`/pantry`)
-- Accesible desde el menú lateral **Mi despensa** (*My Pantry*) para cualquier usuario autenticado.
-- Soporte completo de localización en **Español (`es`)** e **Inglés (`en`)** y formateo regional de fechas.
-- Manejo explícito de estados de **carga**, **error con reintento**, **lista vacía** y **resultados**, además de filtrado por estado (**Todos**, **Disponibles**, **Consumidos**).
-
-### Ejecución de pruebas automatizadas
-- **Backend (.NET / xUnit):**
-  ```bash
-  dotnet test
-
 # Puesta en marcha
 
 ## Instalacion de librerias 

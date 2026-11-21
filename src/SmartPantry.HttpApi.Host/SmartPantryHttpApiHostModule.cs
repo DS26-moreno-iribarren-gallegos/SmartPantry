@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Authentication;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -236,18 +235,6 @@ public class SmartPantryHttpApiHostModule : AbpModule
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "SmartPantry API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
-
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    Scheme = "bearer",
-                    Description = "Pegue access_token sin el prefijo Bearer."
-                });
-
-                options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-                {
-                    [new OpenApiSecuritySchemeReference("Bearer", document)] = []
-                });
             });
     }
 
@@ -326,14 +313,9 @@ public class SmartPantryHttpApiHostModule : AbpModule
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseConfiguredEndpoints();
-    }
 
-    public override async Task OnApplicationInitializationAsync(ApplicationInitializationContext context)
-    {
-        await base.OnApplicationInitializationAsync(context);
-
-        // Registrar el Background Worker periodico luego de inicializar Swagger y las rutas HTTP
-        await context.AddBackgroundWorkerAsync<ExpirationWarningWorker>();
+        // Registrar el Background Worker periodico
+        context.AddBackgroundWorkerAsync<ExpirationWarningWorker>();
     }
 }
 
