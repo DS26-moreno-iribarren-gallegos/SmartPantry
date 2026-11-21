@@ -192,16 +192,8 @@ namespace SmartPantry.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<decimal?>("Quantity")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<string>("Unit")
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
