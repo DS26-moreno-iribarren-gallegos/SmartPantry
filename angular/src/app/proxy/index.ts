@@ -1,7 +1,6 @@
 import * as Authors from './authors';
 import * as Books from './books';
 import * as ExternalProducts from './external-products';
-import * as Pantry from './pantry';
 import * as Products from './products';
 import * as Shared from './shared';
-export { Authors, Books, ExternalProducts, Pantry, Products, Shared };
+export { Authors, Books, ExternalProducts, Products, Shared };

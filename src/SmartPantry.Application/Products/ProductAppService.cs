@@ -7,7 +7,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace SmartPantry.Products;
 
-[Authorize]
+[AllowAnonymous]
 public class ProductAppService :
     CrudAppService<
         Product,
